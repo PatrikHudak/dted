@@ -116,7 +116,8 @@ class DataSetIdentification:
         product_level = buffered_data.read(5).decode(_UTF8)
         reference = buffered_data.read(15)
         _ = buffered_data.read(8)
-        edition = int(buffered_data.read(2))
+        edition = 1
+        _ = buffered_data.read(2)
         merge_version = buffered_data.read(1).decode(_UTF8)
         maintenance_date = parse_month_date(buffered_data.read(4).decode(_UTF8))
         merge_date = parse_month_date(buffered_data.read(4).decode(_UTF8))
@@ -124,11 +125,13 @@ class DataSetIdentification:
         producer_code = buffered_data.read(8)
         _ = buffered_data.read(16)
         product_specification = buffered_data.read(11)
-        specification_date = parse_month_date(buffered_data.read(4).decode(_UTF8))
+        _ = buffered_data.read(4)
+        specification_date = None
         vertical_datum = buffered_data.read(3).decode(_UTF8)
         horizontal_datum = buffered_data.read(5).decode(_UTF8)
         collection_system = buffered_data.read(10).decode(_UTF8)
-        compilation_date = parse_month_date(buffered_data.read(4).decode(_UTF8))
+        _ = buffered_data.read(4)
+        compilation_date = None
         _ = buffered_data.read(22)
 
         origin = LatLon.from_dted(

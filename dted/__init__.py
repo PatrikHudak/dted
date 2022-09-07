@@ -8,6 +8,7 @@ except ImportError:
     #  < 3.8
     import importlib_metadata as metadata  # type: ignore
 
+from . import errors
 from .latlon import LatLon
 from .tile import Tile
 
